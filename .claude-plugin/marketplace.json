@@ -1,0 +1,12 @@
+{
+  "name": "claude-themes",
+  "description": "Themes for the Claude desktop and mobile apps",
+  "owner": { "name": "ephopho" },
+  "plugins": [
+    {
+      "name": "charcoal-look",
+      "source": "./charcoal-look",
+      "description": "Charcoal dark theme with a soft blue accent"
+    }
+  ]
+}
