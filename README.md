@@ -11,6 +11,22 @@ and permission prompts always keep the app's own look.
 
 ## Themes
 
+Install one theme at a time: each sets the whole look, so two would fight.
+
+### cmd black (`cmd-black`)
+
+The Windows Command Prompt look: near-black with plain grey text, and the
+Windows terminal (Campbell) colours for status. **Dark only**, with stronger
+borders so input boxes stay visible on black.
+
+| Part | Colour |
+| --- | --- |
+| Page / cards / panels | `#0c0c0c` / `#121212` / `#181818` |
+| Text | `#cccccc` |
+| Buttons and links | cyan `#3a96dd` |
+| Error / success / warning | `#e74856` / `#16c60c` / `#c19c00` |
+| Values in code | `#b4009e` |
+
 ### Charcoal (`charcoal-look`)
 
 Neutral graphite greys with a soft blue accent. **Dark only**: the app stays
@@ -26,43 +42,45 @@ dark even when your system is in light mode.
 
 ## Install
 
-At the prompt of a terminal Claude Code session:
+At the prompt of a terminal Claude Code session (swap in `charcoal-look`
+for the other theme):
 
 ```
-/plugin install charcoal-look --marketplace ephopho/claude-themes
+/plugin install cmd-black --marketplace ephopho/claude-themes
 ```
 
 Answer `y` to add the marketplace, then pick the **user** scope so the theme
 applies to every session. From a shell instead:
 
 ```bash
-claude plugin install charcoal-look --marketplace ephopho/claude-themes
+claude plugin install cmd-black --marketplace ephopho/claude-themes
 ```
 
 In the desktop app, where `/plugin` doesn't run: click **+** next to the
 prompt box, then **Plugins**, **Add marketplace** with
 `ephopho/claude-themes`, then **Add plugin**.
 
-The theme takes effect in the next session you start.
+The theme takes effect in the next session you start. To swap themes,
+uninstall the one you have first.
 
 ## Change the colours
 
-Edit `charcoal-look/hooks/register.ts`. The colours are the hex values passed
-to `makeColors`: the `anchors` set the greys and text, and the `roles` set
-the accent and status colours. Raise `version` in
-`charcoal-look/.claude-plugin/plugin.json`, then:
+Edit the theme's `hooks/register.ts`, such as `cmd-black/hooks/register.ts`.
+The colours are the hex values passed to `makeColors`: the `anchors` set the
+greys and text, and the `roles` set the accent and status colours. Raise
+`version` in that theme's `.claude-plugin/plugin.json`, then:
 
 ```bash
 claude plugin marketplace update claude-themes
-claude plugin update charcoal-look@claude-themes
+claude plugin update cmd-black@claude-themes
 ```
 
-`hooks/make-colors.js` turns those few colours into the app's full palette
-and checks their contrast. It is copied unchanged from Claude Code's
+Each theme's `hooks/make-colors.js` turns those few colours into the app's
+full palette and checks their contrast. It is copied unchanged from Claude Code's
 plugin-authoring skill; refresh it from there when Claude Code updates.
 
 ## Uninstall
 
 ```bash
-claude plugin uninstall charcoal-look@claude-themes
+claude plugin uninstall cmd-black@claude-themes
 ```

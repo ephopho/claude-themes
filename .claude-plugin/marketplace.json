@@ -7,6 +7,11 @@
       "name": "charcoal-look",
       "source": "./charcoal-look",
       "description": "Charcoal dark theme with a soft blue accent"
+    },
+    {
+      "name": "cmd-black",
+      "source": "./cmd-black",
+      "description": "Windows Command Prompt black with grey text"
     }
   ]
 }
